@@ -1,4 +1,4 @@
-import { Float, Html, OrbitControls, Stars, Environment, ContactShadows, useTexture } from '@react-three/drei'
+import { Float, Html, OrbitControls, Stars, ContactShadows, useTexture } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useMemo, useRef } from 'react'
 import { projects } from '../data/projects.js'
@@ -191,7 +191,6 @@ export function Experience() {
       <LaptopDesk />
       {projects.map((project, index) => <ProjectScreen key={project.id} project={project} index={index} />)}
       <ContactShadows position={[0, -1.28, 0]} opacity={0.34} scale={8} blur={2.5} far={4} />
-      <Environment preset="night" />
       <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.25} minPolarAngle={Math.PI / 3.35} maxPolarAngle={Math.PI / 2.05} />
     </>
   )
