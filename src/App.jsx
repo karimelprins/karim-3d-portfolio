@@ -37,7 +37,7 @@ function Hero() {
     <section className="hero" id="home">
       <motion.div className="hero-copy" initial={heroInitial} animate={heroAnimate} transition={heroTransition}>
         <h1><span>Hi, I’m Karim Ehab</span></h1>
-        <p className="lead"> a Software Engineering graduate and Frontend Developer building real-world React, Next.js, TypeScript projects.</p>
+        <p className="lead"> a Frontend / Next.js Developer building responsive business websites, dashboards, booking flows, API integrations, and production-ready web experiences.</p>
         <div className="hero-actions">
           <a className="button primary" href="#projects">Explore Projects</a>
           <a className="button ghost" href="#contact">Contact Me</a>
@@ -51,10 +51,10 @@ function About() {
   return (
     <section className="section about" id="about">
       <p className="eyebrow">About</p>
-      <h2>Not another flat template. This is a live 3D project world.</h2>
+      <h2>Selected work focused on real products, client needs, and production-ready web experiences.</h2>
       <div className="about-grid">
-        <article><b>Frontend Developer</b><p>I'm a frontend developer with a passion for creating and maintaining responsive and functional web applications with React, Next.js, TypeScript.</p></article>
-        <article><b>My Passion for Coding</b><p>I love solving problems and building things through code. Programming isn't just my profession—it's my passion. I enjoy exploring new technologies, and enhancing my skills.</p></article>
+        <article><b>Frontend Developer</b><p>I build responsive web applications with React, Next.js, and TypeScript, with a focus on clear UX, API integration, maintainable structure, and real business requirements.</p></article>
+        <article><b>My Passion for Coding</b><p>I enjoy turning requirements into working products: dashboards, admin tools, booking flows, bilingual interfaces, authentication, and data-backed user experiences.</p></article>
         <article><b>Location</b><p>I’m very flexible with time zone communications & locations. I'm based in Cairo, Egypt and open to remote work worldwide.</p></article>
       </div>
     </section>
@@ -64,22 +64,31 @@ function About() {
 function Projects() {
   return (
     <section className="section projects" id="projects">
-      <p className="eyebrow">Featured missions</p>
+      <p className="eyebrow">Selected work</p>
+      <p className="section-intro">A mix of client work, full-stack products, and public projects. Private commercial code is clearly marked, while public projects include live demos and source links.</p>
       <div className="project-grid">
         {projects.map((project) => {
           const projectStyle = { '--accent': project.color }
           return (
             <article className="project-card" key={project.id} style={projectStyle}>
-              <div className="project-shot">
-                <img src={project.image} alt={`${project.title} screenshot`} />
-              </div>
+              {project.image ? (
+                <div className="project-shot">
+                  <img src={project.image} alt={`${project.title} screenshot`} />
+                </div>
+              ) : (
+                <div className="project-shot project-shot-private" aria-label={`${project.title} private project`}>
+                  <span>{project.type}</span>
+                </div>
+              )}
               <p className="project-type">{project.type}</p>
               <h3>{project.title}</h3>
               <p>{project.summary}</p>
+              {project.note && <p className="project-note">{project.note}</p>}
               <div className="tag-row">{project.stack.map((tag) => <span key={tag}>{tag}</span>)}</div>
               <div className="project-links">
-                <a href={project.live} target="_blank" rel="noreferrer">Live ↗</a>
-                <a href={project.github} target="_blank" rel="noreferrer">GitHub ↗</a>
+                {project.live && <a href={project.live} target="_blank" rel="noreferrer">Live ↗</a>}
+                {project.github && <a href={project.github} target="_blank" rel="noreferrer">GitHub ↗</a>}
+                {!project.live && !project.github && <span>Private project</span>}
               </div>
             </article>
           )
