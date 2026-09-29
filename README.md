@@ -10,7 +10,7 @@ This is a real React / Three.js / React Three Fiber portfolio project inspired b
 - Project planets with labels
 - Stars, particles, lights, fog and shadows
 - Framer Motion + GSAP scroll animation
-- Separate project panels for FlowBoard AI, Egypt Trip & Ride and FreshCart
+- Separate project panels for Tilal, Kemet, FlowBoard AI, Silah, and FreshCart
 
 ## Run locally
 
